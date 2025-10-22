@@ -51,7 +51,7 @@ def create_review_file(review, template):
         "{{REVIEWTEXT}}": review_content,
         "{{DATE}}": review['Date'],
         "{{SLUG}}": slug.lower(),
-        "{{TITLE}}": f"Review: {review['Name']}"
+        "{{TITLE}}": f"{review['Name']} (Review)"
     }
     
     # Replace all placeholders at once

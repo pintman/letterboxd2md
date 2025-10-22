@@ -1,7 +1,9 @@
 ---
 title: "{{TITLE}}"
 date: {{DATE}}
-draft: false
+author: marco.bakera
+tags: review
+status: published
 slug: {{SLUG}}
 ---
 
