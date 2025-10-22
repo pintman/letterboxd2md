@@ -1,6 +1,5 @@
 import csv
 from datetime import datetime
-import sys
 import os
 import re
 
@@ -9,6 +8,10 @@ def read_template(template_file):
         return f.read()
 
 def parse_reviews(csv_file):
+    """
+    expect reviews.csv with columns: 
+    Date,Name,Year,Letterboxd URI,Rating,Rewatch,Review,Tags,Watched Date
+    """
     reviews = []
     with open(csv_file, 'r') as f:
         reader = csv.DictReader(f)
