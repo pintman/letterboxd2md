@@ -45,14 +45,18 @@ def create_review_file(review, template):
     
     # Format the review content
     review_content = format_review(review)
-        
-    # Replace placeholder in template
-    post_content = template.replace("REVIEWTEXT", review_content)
-
-    # Update metadata in template
-    post_content = post_content.replace("DATE-VORLAGE", review['Date'])
-    post_content = post_content.replace("SLUG-VORLAGE", slug.lower())
-    post_content = post_content.replace("TITLE-VORLAGE", f"Review: {review['Name']}")
+    
+    # Create dictionary with all replacements
+    replacements = {
+        "{{REVIEWTEXT}}": review_content,
+        "{{DATE}}": review['Date'],
+        "{{SLUG}}": slug.lower(),
+        "{{TITLE}}": f"Review: {review['Name']}"
+    }
+    
+    # Replace all placeholders at once
+    for placeholder, value in replacements.items():
+        template = template.replace(placeholder, value)
     
     # Create output directory if it doesn't exist
     output_dir = "reviews"
@@ -62,7 +66,7 @@ def create_review_file(review, template):
     # Write the file
     filepath = os.path.join(output_dir, filename)
     with open(filepath, 'w', encoding='utf-8') as f:
-        f.write(post_content)
+        f.write(template)
     
     return filepath
 

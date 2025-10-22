@@ -1,11 +1,9 @@
 ---
-title: TITLE-VORLAGE
-date: DATE-VORLAGE
-author: marco.bakera
-tags: 
-status: published
-slug: SLUG-VORLAGE
+title: "{{TITLE}}"
+date: {{DATE}}
+draft: false
+slug: {{SLUG}}
 ---
 
-REVIEWTEXT
+{{REVIEWTEXT}}
 
